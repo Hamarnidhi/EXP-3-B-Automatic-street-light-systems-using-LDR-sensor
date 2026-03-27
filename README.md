@@ -64,12 +64,33 @@ o	The middle point (between LDR and resistor) connects to the Arduino analog inp
 •	Stop Simulation: Click "Stop Simulation" to end the simulation.
 •	Save the Circuit: Click "Save" to keep your circuit design and code for future use.
 
+## Circuit:
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b51bbc81-3e62-4f02-9bf0-e6f9a2dcb9f5" />
+
 ## Code:
-
-
+```
+int sensorPin = A0; 
+int sensorValue = 0;
+int led = 9;
+void setup() {
+pinMode(led, OUTPUT);
+Serial.begin(9600);
+} 
+void loop(){
+sensorValue = analogRead(sensorPin);
+Serial.println(sensorValue);  
+if(sensorValue < 100){
+Serial.println("LED light on");
+digitalWrite(led,HIGH);
+delay(1000);
+ }
+digitalWrite(led,LOW);
+delay(sensorValue);
+}
+```
 
 ## Output:
- 
-
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/27b920d0-9b50-4da7-a8e9-7d1301795079" />
 
 ## Result:
+The automatic street light system using the LDR sensor was successfully implemented and simulated in TinkerCAD. The LED turned ON during low light conditions and OFF during bright light, demonstrating automatic street light operation.
